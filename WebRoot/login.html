@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js">
+</script>
+<script>
+    $(document).ready(function(){
+        $("#p1").click(function(){
+            $("#test").val("长沙");
+            $.post("/weather/login",
+            	    {
+            	        user:"菜鸟",
+            	        password:"123"
+            	    },
+            	       
+            	        function(data,status){
+            	        Search S = new Search();
+            	        
+            	       // alert("数据: \n" + data + "\n状态: " + status);
+            	    });
+        });
+             
+        
+    });
+</script>
+</head>
+
+<body>
+
+<h3 id="test1">天气预报</h3>
+<p>Input cityname: <input type="text" id="test" value="Mickey Mouse"></p>
+
+
+<button id="p1">查询</button>
+</body>
+</html>

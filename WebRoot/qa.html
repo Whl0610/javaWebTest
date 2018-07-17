@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>答题</title>
+    <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        #div-btn{
+           text-align: center;
+        }
+        #btn-ans{
+            text-align: center;
+            width: 150px;
+        }
+        #div-btn2{
+           text-align: center;
+        }
+        #btn-ans2{
+            text-align: center;
+            width: 150px;     
+            background:lightblue;  
+    		color:#f2f2f2;     
+           }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function(){
+        	    /////////////
+        	   $.get("/weather/Que",
+        	   		function(data,status){
+        	   		var o = eval('('+data+')');
+        	   		var q1 = o.question1;
+        	   		var q2 = o.question2;
+        	   		var q3 = o.question3;
+        	   		var q4 = o.question4;       
+        	   		});       	    
+        	    var standard="CDDA";
+        	    $("#t1").text("什么碗打不烂？（）");
+        		$("#a11").html("木碗");
+        		//////////////        		
+        	    $("#btn-ans").click(function(){
+        			var s1 = $("input[name=radiobutton1]:checked").val();
+        			var s2 = $("input[name=radiobutton2]:checked").val();
+        			var s3 = $("input[name=radiobutton3]:checked").val();
+        			var s4 = $("input[name=radiobutton4]:checked").val();
+        			
+ 
+        			alert("已交卷\n我的作答是:" + s1+s2+s3+s4 + "\n我的得分是: 100分" +"\n谢谢");
+        			
+                
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+<h3 align="center">第一题</h3>
+<p id="t1"> 题目有待从数据库读取 </p>
+    <input type="radio" name="radiobutton1" value="A" checked><span id="a11">选项有待从数据库读取</span><br>
+    <input type="radio" name="radiobutton1" value="B"><span id="a12">陶瓷碗</span><br>
+    <input type="radio" name="radiobutton1" value="C"><span id="a13">铁饭碗</span><br>
+    <input type="radio" name="radiobutton1" value="D"><span id="a14">塑料碗</span><br>
+<h3 align="center">第二题</h3>
+<p id="t2">先秦时代,教育内容以六艺为主,下列不属于六艺的是？（）</p>
+    <input type="radio" name="radiobutton2" value="A" checked><span id="a21">射</span><br>
+    <input type="radio" name="radiobutton2" value="B"><span id="a22">御</span><br>
+    <input type="radio" name="radiobutton2" value="C"><span id="a23">礼</span><br>
+    <input type="radio" name="radiobutton2" value="D"><span id="a24">武</span><br>
+<h3 align="center">第三题</h3>
+<p id="t3">生当做人杰,死亦为鬼雄,至今思项羽,不肯过江东。为哪位诗人的作品?（）</p>
+    <input type="radio" name="radiobutton3" value="A" checked><span id="a31">李白</span><br>
+    <input type="radio" name="radiobutton3" value="B"><span id="a32">杜甫</span><br>
+    <input type="radio" name="radiobutton3" value="C"><span id="a33">李商隐</span><br>
+    <input type="radio" name="radiobutton3" value="D"><span id="a34">李清照</span><br>
+<h3 align="center">第四题</h3>
+<p id="t4">鲁迅先生称(  )为史家之绝唱,无韵之离骚。</p>
+    <input type="radio" name="radiobutton4" value="A" checked><span id="a41">史记</span><br>
+    <input type="radio" name="radiobutton4" value="B"><span id="a42">汉书</span><br>
+    <input type="radio" name="radiobutton4" value="C"><span id="a43">三国志</span><br>
+    <input type="radio" name="radiobutton4" value="D"><span id="a44">资治通鉴</span><br>
+          
+    <br>
+    <div id="div-btn">
+    <button id="btn-ans" type="button" class="btn btn-success">交 卷</button>
+    <div id="div-btn2">
+    <button id="btn-ans2" type="button" class="btn btn-success2">更换题目</button>
+    </div>
+    </div>
+    <br>
+    <br>
+</div>
+</body>
+</html>
